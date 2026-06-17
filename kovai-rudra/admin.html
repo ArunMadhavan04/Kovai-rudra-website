@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin · Kovai Rudra Builders & Developers</title>
+<link rel="icon" type="image/png" href="assets/img/logo-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  body{background:var(--bone)}
+  .abar{background:var(--onyx);color:#fff;padding:14px 0;position:sticky;top:0;z-index:30}
+  .abar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .abar img{height:40px}
+  .abar .tag{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+  .abar a{font-size:.84rem;color:rgba(255,255,255,.75)}
+  .abar a:hover{color:var(--gold)}
+  .gate{min-height:80vh;display:grid;place-items:center;padding:40px 20px}
+  .gate__card{background:#fff;border:1px solid #eee;border-radius:var(--r);box-shadow:var(--shadow);padding:40px;max-width:380px;width:100%;text-align:center}
+  .gate__card h1{font-size:1.5rem;margin:14px 0 6px}
+  .gate__card p{color:var(--ink-60);font-size:.9rem;margin:0 0 22px}
+  .gate__card img{height:70px;margin:0 auto}
+  .panel{max-width:1100px;margin:0 auto;padding:38px var(--pad) 90px}
+  .panel__head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:28px}
+  .panel__head h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:0}
+  .panel__head p{color:var(--ink-60);margin:6px 0 0}
+  .tools{display:flex;gap:10px;flex-wrap:wrap}
+  .alist{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-bottom:40px}
+  .arow{background:#fff;border:1px solid #ececec;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+  .arow img{height:150px;object-fit:cover;width:100%;background:#eee}
+  .arow__b{padding:16px 18px;flex:1;display:flex;flex-direction:column}
+  .arow__b .cat{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:700}
+  .arow__b h3{font-family:var(--f-body);font-size:1.05rem;margin:6px 0 4px}
+  .arow__b .meta{font-size:.84rem;color:var(--ink-60);margin-bottom:14px}
+  .arow__act{display:flex;gap:8px;margin-top:auto}
+  .mini{padding:9px 14px;font-size:.78rem;border-radius:8px;border:1px solid #e0e0e0;background:#fff;font-weight:600;letter-spacing:.03em}
+  .mini:hover{border-color:var(--gold)}
+  .mini.del{color:#c0392b;border-color:#f0c9c4}
+  .mini.del:hover{background:#fdf2f1;border-color:#c0392b}
+  .form2{background:#fff;border:1px solid #ececec;border-radius:var(--r);box-shadow:var(--shadow);padding:clamp(22px,4vw,36px)}
+  .form2 h2{font-family:var(--f-body);font-size:1.2rem;margin:0 0 4px}
+  .form2 .sub{color:var(--ink-60);font-size:.88rem;margin:0 0 22px}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){.g2{grid-template-columns:1fr}}
+  .preview{margin-top:6px;height:120px;border-radius:10px;border:1px dashed #d8d8d8;background:#fafafa center/cover no-repeat;display:grid;place-items:center;color:#aaa;font-size:.8rem}
+  .docbox{background:#fff;border:1px solid #ececec;border-radius:var(--r);padding:28px 30px;margin-top:30px}
+  .docbox h2{font-family:var(--f-body);font-size:1.1rem;margin:0 0 10px}
+  .docbox p,.docbox li{font-size:.9rem;color:var(--graphite)}
+  .docbox code{background:#f4f1ea;padding:2px 6px;border-radius:5px;font-size:.84em}
+  .docbox pre{background:var(--onyx);color:#e8e8e8;padding:18px;border-radius:10px;overflow:auto;font-size:.8rem;line-height:1.5}
+  .docbox pre .c{color:var(--gold)}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);background:var(--onyx);color:#fff;padding:13px 24px;border-radius:999px;font-size:.88rem;box-shadow:var(--shadow);transition:.4s var(--ease);z-index:50;border:1px solid var(--line)}
+  .toast.show{transform:translate(-50%,0)}
+  .hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="abar">
+  <div class="wrap">
+    <span style="display:flex;align-items:center;gap:14px"><img src="assets/img/logo-light.png" alt="Kovai Rudra"><span class="tag">Admin Panel</span></span>
+    <span><a href="index.html">← View website</a> &nbsp;·&nbsp; <a href="#" id="logout">Lock</a></span>
+  </div>
+</div>
+
+<!-- GATE -->
+<div class="gate" id="gate">
+  <div class="gate__card">
+    <img src="assets/img/logo-dark.png" alt="Kovai Rudra Builders & Developers">
+    <h1>Portfolio Manager</h1>
+    <p>Enter the access code to manage your project gallery.</p>
+    <div class="field" style="text-align:left">
+      <input type="password" id="pass" placeholder="Access code" style="width:100%;padding:14px 16px;border:1px solid #e0e0e0;border-radius:10px;font:inherit">
+      <span class="err" id="passErr" style="color:#c0392b;font-size:.82rem;display:none;margin-top:6px">Incorrect code. Try again.</span>
+    </div>
+    <button class="btn btn--dark" id="enter" style="width:100%;margin-top:8px">Enter</button>
+    <p style="font-size:.76rem;margin-top:18px">Default code: <code style="background:#f4f1ea;padding:2px 6px;border-radius:5px">kovai2026</code> — change it in <code>admin.js</code>.</p>
+  </div>
+</div>
+
+<!-- PANEL -->
+<main class="panel hidden" id="panel">
+  <div class="panel__head">
+    <div>
+      <h1>Manage Portfolio</h1>
+      <p>Add, edit or remove the projects shown in your website gallery.</p>
+    </div>
+    <div class="tools">
+      <button class="btn btn--dark" id="newBtn">+ Add Project</button>
+      <button class="mini" id="resetBtn">Reset to samples</button>
+    </div>
+  </div>
+
+  <div class="alist" id="alist"><!-- injected --></div>
+
+  <!-- editor -->
+  <form class="form2" id="editor">
+    <h2 id="edTitle">Add a project</h2>
+    <p class="sub">Fill in the details below. Changes appear on your live gallery instantly.</p>
+    <input type="hidden" id="edIndex" value="-1">
+    <div class="g2">
+      <div class="field"><label for="edName">Project name</label><input id="edName" placeholder="e.g. Modern Family Residence" required></div>
+      <div class="field"><label for="edCat">Category</label>
+        <select id="edCat" style="width:100%;padding:14px 16px;border:1px solid #e0e0e0;border-radius:10px;font:inherit;background:#fcfcfc">
+          <option>Residential</option><option>Commercial</option><option>Development</option>
+        </select>
+      </div>
+      <div class="field"><label for="edLoc">Location</label><input id="edLoc" placeholder="e.g. Saravanampatti, Coimbatore"></div>
+      <div class="field"><label for="edYear">Completion year</label><input id="edYear" placeholder="e.g. 2025"></div>
+    </div>
+    <div class="field"><label for="edDesc">Description</label><textarea id="edDesc" placeholder="A short description of the project…"></textarea></div>
+    <div class="g2">
+      <div class="field"><label for="edUrl">Image URL</label><input id="edUrl" placeholder="assets/img/your-photo.jpg or https://…"></div>
+      <div class="field"><label for="edFile">…or upload a photo</label><input id="edFile" type="file" accept="image/*" style="width:100%;padding:11px;border:1px solid #e0e0e0;border-radius:10px;font:inherit;background:#fcfcfc"></div>
+    </div>
+    <div class="preview" id="edPreview">Image preview</div>
+    <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap">
+      <button type="submit" class="btn btn--gold">Save project</button>
+      <button type="button" class="mini" id="cancelBtn">Clear</button>
+    </div>
+  </form>
+
+  <!-- Firebase upgrade docs -->
+  <div class="docbox">
+    <h2>Going live for everyone (Firebase / Supabase)</h2>
+    <p>This panel saves projects to the <strong>browser's local storage</strong>, so it works instantly with no setup — perfect for managing the gallery on one device. To make changes appear for <em>every visitor</em> on every device, connect a free cloud database. The code is already structured for an easy swap:</p>
+    <ul>
+      <li>Create a free <strong>Firebase</strong> project and enable <strong>Firestore</strong> + <strong>Storage</strong> (or use <strong>Supabase</strong>).</li>
+      <li>Replace the three <code>store.*</code> helpers in <code>admin.js</code> and the loader in <code>main.js</code> with the calls below.</li>
+      <li>Enable <strong>Firebase Authentication</strong> for real, secure admin login (the access code here is a simple gate, not full security).</li>
+    </ul>
+    <pre><span class="c">// 1) load the SDK in admin.html &amp; index.html</span>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.x/firebase-app.js";
+import { getFirestore, collection, getDocs, addDoc, doc, updateDoc, deleteDoc }
+  from "https://www.gstatic.com/firebasejs/10.x/firebase-firestore.js";
+
+const app = initializeApp({ /* your config */ });
+const db  = getFirestore(app);
+
+<span class="c">// 2) read projects on the website (main.js)</span>
+const snap = await getDocs(collection(db, "projects"));
+const projects = snap.docs.map(d =&gt; ({ id: d.id, ...d.data() }));
+
+<span class="c">// 3) add / edit / delete in the admin (admin.js)</span>
+await addDoc(collection(db, "projects"), project);
+await updateDoc(doc(db, "projects", id), project);
+await deleteDoc(doc(db, "projects", id));</pre>
+    <p style="margin-bottom:0">Upload photos to Firebase Storage and save the returned URL in the project's <code>img</code> field. That's the whole upgrade — the rest of the site stays exactly as it is.</p>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

@@ -355,8 +355,14 @@ h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.12;letter-sp
     width: 100vw;
     height: 100vh;
     background: #000;
+    background-color: #000;
+
     z-index: 99999;
+    isolation: isolate;
+
     opacity: 1;
+    visibility: visible;
+
     overflow-y: auto;
     padding-top: 120px;
 

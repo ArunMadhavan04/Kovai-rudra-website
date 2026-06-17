@@ -350,17 +350,19 @@ h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.12;letter-sp
   .nav_links {
     position: fixed;
     top: 0;
+    left: 0;
     right: -100%;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background: #000;
-    z-index: 9999;
+    z-index: 99999;
     opacity: 1;
     overflow-y: auto;
+    padding-top: 120px;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 20px;
 
